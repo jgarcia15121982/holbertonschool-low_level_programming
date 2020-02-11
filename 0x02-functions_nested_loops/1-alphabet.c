@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- * _print_alphabet - uses "holberton.h" to write the alphabet backwards
+ * print_alphabet - uses "holberton.h" to write the alphabet backwards
  * void: it doesn't return a value
  *
  * Return: It has no return

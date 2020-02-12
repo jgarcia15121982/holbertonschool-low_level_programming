@@ -28,5 +28,7 @@ void fibonacci(void)
 
 		if (c != 50)
 			printf(", ");
+
+		printf("\n");
 	}
 }

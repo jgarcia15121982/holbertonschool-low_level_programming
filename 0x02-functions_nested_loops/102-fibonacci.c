@@ -2,16 +2,18 @@
 
 /**
  * fibonacci - the first 50 Fibonacci numbers, starting with 1 and 2.
+ * @first: First number of the sequence
+ * @second: Second number of the sequence
  *
  * Return: It has no return
  */
-void fibonacci(void)
+void fibonacci(long first, long second)
 {
-	long n, first = 1, second = 2, next, c;
+	long n, next, c;
 
 	n = 50;
 
-	for (c = 1; c <= 50; c++)
+	for (c = 1; c <= n; c++)
 	{
 		if (c <= 2)
 		{
@@ -26,9 +28,8 @@ void fibonacci(void)
 
 		printf("%ld", next);
 
-		if (c != 50)
-			printf(", ");
+		if (c != n)
+			printf(", \n");
 
-		printf("\n");
 	}
 }

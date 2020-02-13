@@ -1,4 +1,22 @@
 #include <stdio.h>
+/**
+ * main - check the code for Holberton School students.
+ *
+ * Return: Always 0
+ * @long: Data type.
+ */
+void fibonacci(long, long);
+
+int main(void)
+{
+	fibonacci(1, 2);
+	printf("\n");
+	return (0);
+}
+
+
+
+
 
 /**
  * fibonacci - the first 50 Fibonacci numbers, starting with 1 and 2.
@@ -26,10 +44,11 @@ void fibonacci(long first, long second)
 			second = next;
 		}
 
+
 		printf("%ld", next);
 
 		if (c != n)
-			printf(", \n");
+			printf(", ");
 
 	}
 }

@@ -1,3 +1,4 @@
-#Holberton School Low Level Programming
+#holbertonschool-low_level_programming
 ##More Function Nested Loops
-###C is fun
+##By John Garcia
+### More functions and nested loops are fun

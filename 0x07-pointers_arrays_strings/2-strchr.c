@@ -8,20 +8,27 @@ char *_strchr(char *s, char c)
 {
 	unsigned int i = 0;
 
-	for (i = 0; s[i]; i++)
+	if (*s != '\0')
 	{
-		if (s[i] == c)
+		for (i = 0; s[i]; i++)
 		{
-			while (s[i] != '\0')
+			if (s[i] == c)
 			{
-				s = s + i;
-				i++;
+				while (s[i] != '\0')
+				{
+					s = s + i;
+					i++;
+				}
+			}
+			else
+			{
+				continue;
 			}
 		}
-		else
-		{
-			continue;
-		}
+	}
+	else
+	{
+		return (0);
 	}
 	return (s);
 }

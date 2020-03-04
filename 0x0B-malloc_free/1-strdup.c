@@ -31,35 +31,26 @@ int _strlen(char *s)
  */
 char *_strdup(char *str)
 {
-	if (str != NULL)
+	int size;
+	char *sr;
+	int i;
+
+	size = _strlen(str);
+
+	sr = malloc(sizeof(char) * size + 1);
+
+	if (sr != NULL)
 	{
-		int size;
-		char *sr;
-		int i;
-
-		size = _strlen(str);
-
-		sr = malloc(sizeof(char) * size + 1);
-
-		if (sr != NULL)
+		for (i = 0; str[i] != '\0'; i++)
 		{
-			for (i = 0; sr[i] != '\0'; i++)
-			{
-				*(sr + i) = *(str + i);
-			}
-			sr[i] = '\0';
+			*(sr + i) = *(str + i);
+		}
+		sr[i] = '\0';
 
-			return (sr);
-		}
-		else
-		{
-			return (NULL);
-		}
-	}
-	else if (str == NULL)
-	{
-		return (NULL);
+		return (sr);
 	}
 	else
-		return (0);
+		return (NULL);
+
+	return (0);
 }

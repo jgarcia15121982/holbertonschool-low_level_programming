@@ -22,7 +22,7 @@ int _strlen(char *s)
 }
 
 /**
- * strdup - Function that returnd a pointer
+ * _strdup - Function that returnd a pointer
  * to a newly allocated space in memory, which
  * contains a copy of the string given as a parameter.
  * @str: String given as a parameter.
@@ -31,9 +31,13 @@ int _strlen(char *s)
  */
 char *_strdup(char *str)
 {
+
 	int size;
 	char *sr;
 	int i;
+
+	if (str == NULL)
+		return (NULL);
 
 	size = _strlen(str);
 

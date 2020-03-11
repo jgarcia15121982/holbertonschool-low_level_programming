@@ -52,7 +52,7 @@ char *_strdup(char *str)
 }
 /**
  * new_dog - Function that creates a new dog.
- * @name: name of the dog.
+ * @name: Name of the dog.
  * @age: Age of the dog.
  * @owner: Owner of the dog.
  *
@@ -60,19 +60,27 @@ char *_strdup(char *str)
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t dog_f;
 	dog_t *my_dog;
 
-	dog_f.age = age;
-	dog_f.name = _strdup(name);
-	if (dog_f.name == NULL)
+	if (name == NULL || owner == NULL)
 		return (NULL);
-	dog_f.owner = _strdup(owner);
-	if (dog_f.owner == NULL)
+	my_dog = malloc(sizeof(struct dog));
+	if (my_dog == NULL)
+		return (NULL);
+
+	my_dog->name = _strdup(name);
+	if (my_dog->name == NULL)
 	{
-		free(dog_f.name);
+		free(my_dog);
 		return (NULL);
 	}
-	my_dog = &dog_f;
+	my_dog->age = age;
+	my_dog->owner = _strdup(owner);
+	if (my_dog->owner == NULL)
+	{
+		free(my_dog->name);
+		free(my_dog);
+		return (NULL);
+	}
 	return (my_dog);
 }

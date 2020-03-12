@@ -1,3 +1,4 @@
+#include <stdlib.h>
 /**
  * print_name - Function that prints a name.
  * @name: Pointer to a char.
@@ -7,8 +8,8 @@
  */
 void print_name(char *name, void(*f)(char *))
 {
-	if (name)
-		(*f)(name);
-	else
+	if (name == NULL || f == NULL)
 		return;
+	else
+		(*f)(name);
 }

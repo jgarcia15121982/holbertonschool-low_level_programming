@@ -20,7 +20,7 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	{
 		s = va_arg(arguments, char *);
 		if (s == NULL)
-			break`;
+			break;
 		if (separator == NULL)
 		{
 			if (s[0] == 00)

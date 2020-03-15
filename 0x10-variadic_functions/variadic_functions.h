@@ -1,5 +1,11 @@
 #ifndef VARIADIC_H
 #define VARIADIC_H
+/**
+ * struct format - Struct format
+ *
+ * @s: A string
+ * @f: The function associated
+ */
 typedef struct format
 {
 	char *s;

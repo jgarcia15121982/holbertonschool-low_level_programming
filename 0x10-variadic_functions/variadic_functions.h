@@ -1,3 +1,4 @@
+#include <stdarg.h>
 #ifndef VARIADIC_H
 #define VARIADIC_H
 /**
@@ -10,7 +11,7 @@ typedef struct format
 {
 	char *s;
 	void (*f)(va_list argm);
-} frm;
+}frm;
 
 int _putchar(char c);
 int sum_them_all(const unsigned int n, ...);

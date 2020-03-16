@@ -1,10 +1,10 @@
-#include <stdarg.h>
 #ifndef VARIADIC_H
 #define VARIADIC_H
+#include <stdarg.h>
 /**
- * struct format - Struct format
+ * struct fmt - Struct format
  *
- * @s: A string
+ * @fmt: A char data
  * @f: The function associated
  */
 typedef struct fmt

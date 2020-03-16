@@ -7,7 +7,7 @@
  */
 void print_ch(va_list list)
 {
-	printf("%c", va_arg(list, int));
+	printf("%c", (char)va_arg(list, int));
 }
 /**
  * print_int - print a integer
@@ -23,19 +23,22 @@ void print_int(va_list list)
  */
 void print_flt(va_list list)
 {
-	printf("%.2f", va_arg(list, double));
+	printf("%f", (float)va_arg(list, double));
 }
 /**
  * print_str - print a string
- * @list: list of arguments
+ * @list: list)ments
  */
 void print_str(va_list list)
 {
 	char *st = va_arg(list, char *);
 
-	if (st == NULL)
-		st = "(nil)";
-	printf("%s", st);
+	if (st)
+	{
+		printf("%s", st);
+		return;
+	}
+	printf("(nil)");
 }
 /**
  * print_all - print all arguments
@@ -50,7 +53,6 @@ void print_all(const char * const format, ...)
 	{'i', print_int},
 	{'f', print_flt},
 	{'s', print_str},
-	{NULL, NULL}
 	};
 	char *s = "";
 
@@ -73,5 +75,3 @@ void print_all(const char * const format, ...)
 	printf("\n");
 	va_end(args);
 }
-
-

@@ -7,11 +7,11 @@
  * @s: A string
  * @f: The function associated
  */
-typedef struct format
+typedef struct fmt
 {
-	char *s;
-	void (*f)(va_list argm);
-}frm;
+	char fmt;
+	void (*f)(va_list);
+} frm;
 
 int _putchar(char c);
 int sum_them_all(const unsigned int n, ...);

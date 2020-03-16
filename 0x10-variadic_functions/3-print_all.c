@@ -1,41 +1,77 @@
 #include <stdio.h>
-#include <stdarg.h>
+#include <stdlib.h>
 #include "variadic_functions.h"
-
-void print_ch(va_list c)
+/**
+ * print_ch - print a character
+ * @list: list of arguments
+ */
+void print_ch(va_list list)
 {
-	printf("%c", va_arg(c, char));
+	printf("%c", va_arg(list, int));
 }
-
-void print_int(va_list n)
+/**
+ * print_int - print a integer
+ * @list: list of arguments
+ */
+void print_int(va_list list)
 {
-	printf("%d", va_arg(n, int));
+	printf("%d", va_arg(list, int));
 }
-
-void print_flt(va_list f)
+/**
+ * print_flt - print a float
+ * @list: list of arguments
+ */
+void print_flt(va_list list)
 {
-	printf("%.2f",va_arg(f, float));
+	printf("%.2f", va_arg(list, double));
 }
-
-void print_str(va_list s)
+/**
+ * print_str - print a string
+ * @list: list of arguments
+ */
+void print_str(va_list list)
 {
-	if (s)
-		printf("%s", va_arg(*s, char));
-	return
+	char *s = va_arg(list, char *);
+
+	if (s == NULL)
 		printf("(nil)");
-}	
-
+	else
+		printf("%s", s);
+}
+/**
+ * print_all - print all arguments
+ * @format: receives all formats
+ */
 void print_all(const char * const format, ...)
 {
-	var_list args;
-	frm ft [] = {
-	{"c", print_ch},
-	{"i", print_int},
-	{"f", print_flt},
-	{"s", print_str}
+	int i = 0, j = 0;
+	va_list args;
+	frm ft[] = {
+	{'c', print_ch},
+	{'i', print_int},
+	{'f', print_flt},
+	{'s', print_str}
 	};
+	char *s = "";
 
 	va_start(args, format);
+	while (format && format[i])
+	{
+		j = 0;
+		while (j < 4)
+		{
+			if (format[i] == ft[j].fmt)
+			{
+				printf("%s", s);
+				ft[j].f(args);
+				s = ", ";
+			}
+			j++;
+		}
+		i++;
+	}
+	printf("\n");
+	va_end(args);
 }
 
 

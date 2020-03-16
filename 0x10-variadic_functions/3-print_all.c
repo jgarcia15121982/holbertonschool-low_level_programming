@@ -31,12 +31,11 @@ void print_flt(va_list list)
  */
 void print_str(va_list list)
 {
-	char *s = va_arg(list, char *);
+	char *st = va_arg(list, char *);
 
-	if (s == NULL)
-		printf("(nil)");
-	else
-		printf("%s", s);
+	if (st == NULL)
+		st = "(nil)";
+	printf("%s", st);
 }
 /**
  * print_all - print all arguments
@@ -50,7 +49,8 @@ void print_all(const char * const format, ...)
 	{'c', print_ch},
 	{'i', print_int},
 	{'f', print_flt},
-	{'s', print_str}
+	{'s', print_str},
+	{NULL, NULL}
 	};
 	char *s = "";
 

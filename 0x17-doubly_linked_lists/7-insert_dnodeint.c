@@ -2,7 +2,6 @@
 /**
  * dlistint_len - returns number of elements in doubly linked list
  * @h: pointer to head of linked list
- *
  * Return: number of elements in list
  */
 size_t dlistint_len(const dlistint_t *h)
@@ -16,13 +15,11 @@ size_t dlistint_len(const dlistint_t *h)
 	}
 	return (total);
 }
-
 /**
  * insert_dnodeint_at_index - inserts a new node at a given position
  * @h: pointer to address of head node of doubly linked list
  * @idx: index of the list where new node should be added, starting at 0
  * @n: number to be assigned to data portion of node
- *
  * Return: address of the new node, or NULL if it failed
  */
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
@@ -39,7 +36,6 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	if (!new)
 		return (NULL);
 	new->n = n;
-
 	if (idx == 0 && *h)
 	{
 		tmp = *h;
@@ -51,7 +47,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	else if (*h)
 	{
 		tmp = *h;
-		
+
 		for (i = 1; i < idx; i++)
 			tmp = tmp->next;
 

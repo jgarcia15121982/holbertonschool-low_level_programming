@@ -51,7 +51,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	else if (*h)
 	{
 		tmp = *h;
-		/* iterate to node at index before where we want to insert */
+		
 		for (i = 1; i < idx; i++)
 			tmp = tmp->next;
 

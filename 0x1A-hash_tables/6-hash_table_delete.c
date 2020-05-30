@@ -3,29 +3,29 @@
 /**
  * hash_table_delete - Function that deletes a hash table
  * @ht: pointer to a hash table
+ * Return: void
  */
 void hash_table_delete(hash_table_t *ht)
 {
-	unsigned long int size, i;
-	hash_node_t **arr, *tmp, *node;
+	unsigned long int idx;
+	hash_node_t *tmp = NULL;
+	hash_node_t *node = NULL;
 
-	arr = ht->array;
-	size = ht->size;
-	for (i = 0; i < size; i++)
+	if (!ht)
+		return;
+
+	for (idx = 0; idx < ht->size; idx++)
 	{
-		if (arr[i])
+		node = ht->array[idx];
+		while (node)
 		{
-			node = arr[i];
-			while (node)
-			{
-				tmp = node;
-				free(tmp->key);
-				free(tmp->value);
-				node = node->next;
-				free(tmp);
-			}
+			tmp = node;
+			free(tmp->value);
+			free(tmp->key);
+			node = node->next;
+			free(tmp);
 		}
 	}
-	free(arr);
+	free(ht->array);
 	free(ht);
 }
